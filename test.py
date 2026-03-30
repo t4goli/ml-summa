@@ -4,7 +4,6 @@ from sklearn.linear_model import LinearRegression
 
 df = pd.read_csv("student_exam_scores.csv", sep=",")
 
-print(df.head())
 print(df.columns)
 y = df["exam_score"]
 X = df.drop(["exam_score", "student_id"], axis=1)
@@ -18,3 +17,6 @@ print(X_test.shape)
 
 model = LinearRegression()
 model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+print(y_pred[:5])
