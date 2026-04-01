@@ -34,11 +34,17 @@ results = pd.DataFrame({
     "Actual": y_test,
     "Predicted": y_pred
 })
+# Predictions on training data
+y_train_pred_tree = tree_model.predict(X_train)
 
-print(results.head(10))
+# Training error
+mse_train_tree = mean_squared_error(y_train, y_train_pred_tree)
 
+print("Tree Train MSE:", mse_train_tree)
 mse = mean_squared_error(y_test, y_pred)
 print("MSE:", mse)
 
 mse_tree = mean_squared_error(y_test, y_pred_tree)
+print("Tree Test MSE:", mse_tree)
+
 print("Tree MSE:", mse_tree)
