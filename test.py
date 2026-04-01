@@ -42,12 +42,12 @@ y_train_pred_tree = tree_model.predict(X_train)
 # Training error
 mse_train_tree = mean_squared_error(y_train, y_train_pred_tree)
 
-print("Tree Train MSE:", mse_train_tree)
 mse = mean_squared_error(y_test, y_pred)
-print("MSE:", mse)
 
 mse_tree = mean_squared_error(y_test, y_pred_tree)
-print("Tree Test MSE:", mse_tree)
 
 mse_rf = mean_squared_error(y_test, y_pred_rf)
+
+print("Linear Regression MSE:", mse)
+print("Decision Tree MSE:", mse_tree)
 print("Random Forest MSE:", mse_rf)
