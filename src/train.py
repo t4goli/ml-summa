@@ -5,6 +5,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
+import matplotlib.pyplot as plt
 
 df = pd.read_csv("data/student_exam_scores.csv")
 
@@ -51,3 +52,9 @@ mse_rf = mean_squared_error(y_test, y_pred_rf)
 print("Linear Regression MSE:", mse)
 print("Decision Tree MSE:", mse_tree)
 print("Random Forest MSE:", mse_rf)
+
+plt.scatter(y_test, y_pred)
+plt.xlabel("Actual Scores")
+plt.ylabel("Predicted Scores")
+plt.title("Actual vs Predicted Exam Scores")
+plt.show()
