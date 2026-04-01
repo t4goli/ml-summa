@@ -47,3 +47,9 @@ Target variable:
 - Python
 - pandas
 - scikit-learn
+
+## Visualization
+
+The model's performance was visualized by plotting predicted vs actual exam scores.
+
+The plot shows a strong linear correlation, indicating that the model accurately captures the relationship between input features and exam performance.
