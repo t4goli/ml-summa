@@ -24,7 +24,7 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 model.fit(X_train_scaled, y_train)
-tree_model = DecisionTreeRegressor(random_state=42)
+tree_model = DecisionTreeRegressor(max_depth=3, random_state=42)
 tree_model.fit(X_train, y_train)
 
 y_pred = model.predict(X_test_scaled)
