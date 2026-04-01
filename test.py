@@ -4,7 +4,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeRegressor
-
+from sklearn.ensemble import RandomForestRegressor
 
 df = pd.read_csv("student_exam_scores.csv", sep=",")
 
@@ -26,10 +26,12 @@ X_test_scaled = scaler.transform(X_test)
 model.fit(X_train_scaled, y_train)
 tree_model = DecisionTreeRegressor(max_depth=3, random_state=42)
 tree_model.fit(X_train, y_train)
-
+rf_model = RandomForestRegressor(random_state=42)
+rf_model.fit(X_train, y_train)
 y_pred = model.predict(X_test_scaled)
 y_pred_tree = tree_model.predict(X_test)
-
+y_pred_rf = rf_model.predict(X_test)
+rf_model.fit(X_train, y_train)
 results = pd.DataFrame({
     "Actual": y_test,
     "Predicted": y_pred
@@ -47,4 +49,5 @@ print("MSE:", mse)
 mse_tree = mean_squared_error(y_test, y_pred_tree)
 print("Tree Test MSE:", mse_tree)
 
-print("Tree MSE:", mse_tree)
+mse_rf = mean_squared_error(y_test, y_pred_rf)
+print("Random Forest MSE:", mse_rf)
