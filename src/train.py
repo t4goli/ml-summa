@@ -8,6 +8,7 @@ from sklearn.ensemble import RandomForestRegressor
 import matplotlib.pyplot as plt
 import numpy as np
 
+print("=== Student Exam Score Prediction ===")
 df = pd.read_csv("data/student_exam_scores.csv")
 
 print(df.columns)
@@ -38,6 +39,7 @@ results = pd.DataFrame({
     "Actual": y_test,
     "Predicted": y_pred
 })
+print("\n--- Model Results ---")
 # Predictions on training data
 y_train_pred_tree = tree_model.predict(X_train)
 
