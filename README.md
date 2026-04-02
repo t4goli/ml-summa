@@ -53,3 +53,9 @@ Target variable:
 The model's performance was visualized by plotting predicted vs actual exam scores.
 
 The plot shows a strong linear correlation, indicating that the model accurately captures the relationship between input features and exam performance.
+
+Key Insights
+Hours studied was the most influential feature (~65% importance in Random Forest)
+Previous scores also contributed significantly to predictions
+Linear Regression outperformed more complex models due to the dataset’s linear relationships
+Decision Trees overfit the training data, which was mitigated by limiting tree depth
