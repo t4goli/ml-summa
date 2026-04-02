@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 import matplotlib.pyplot as plt
+import numpy as np
 
 df = pd.read_csv("data/student_exam_scores.csv")
 
@@ -48,6 +49,12 @@ mse = mean_squared_error(y_test, y_pred)
 mse_tree = mean_squared_error(y_test, y_pred_tree)
 
 mse_rf = mean_squared_error(y_test, y_pred_rf)
+
+importances = rf_model.feature_importances_
+feature_names = X.columns
+
+for name, importance in zip(feature_names, importances):
+    print(f"{name}: {importance}")
 
 print("Linear Regression MSE:", mse)
 print("Decision Tree MSE:", mse_tree)
